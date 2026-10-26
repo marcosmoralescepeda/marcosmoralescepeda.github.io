@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wooden Dragster | Marcos Morales</title>
+<meta name="description" content="Wooden dragster designed in SolidWorks, with an airflow study in SOLIDWORKS Flow Simulation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #041E42;
+    --orange: #FF8200;
+    --ink: #1D2733;
+    --pencil: #5C6672;
+    --line: #C9D0D8;
+    --paper: #F6F8FA;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Barlow", system-ui, sans-serif; font-size: 17px; line-height: 1.6; }
+  a { color: var(--navy); }
+  a:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: "Barlow Condensed", sans-serif; font-weight: 600; color: var(--navy); line-height: 1.05; }
+
+  .topbar { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,.12); }
+  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  .topbar a { color: var(--white); text-decoration: none; font-weight: 500; }
+  .topbar a:hover { color: var(--orange); }
+  .topbar .back::before { content: "\2190\00a0"; }
+
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    background-image:
+      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    padding: 56px 0 0;
+  }
+  .hero h1 { color: var(--white); font-size: clamp(64px, 10vw, 128px); margin: 0; letter-spacing: -.01em; line-height: .9; }
+  .hero .sub { font-family: "Barlow Condensed", sans-serif; font-size: 28px; color: var(--orange); margin: 10px 0 18px; }
+  .hero-top { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; }
+  .hero p { color: #D9E2EE; font-size: 19px; max-width: 46ch; margin: 0; }
+  .facts { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; justify-content: flex-end; }
+  .facts li { border: 1px solid rgba(255,255,255,.35); padding: 6px 12px; font-size: 15px; }
+  .hero-sim { margin-top: 40px; border: 1px solid rgba(255,255,255,.35); border-bottom: 0; background: #E6E7EA; }
+  .hero-sim img { width: 100%; }
+
+  .scale { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--pencil); margin: 14px 0 0; }
+  .scale .bar { flex: 0 1 280px; height: 10px; border: 1px solid var(--line); background: linear-gradient(90deg, #0000FF, #00FFFF, #00FF00, #FFFF00, #FF8000, #FF0000); }
+
+  section { padding: 72px 0 0; }
+  h2 { font-size: 44px; margin: 0 0 10px; }
+  .lead { color: var(--pencil); max-width: 62ch; margin: 0 0 32px; }
+
+  table.spec { width: 100%; border-collapse: collapse; background: var(--white); border: 1.5px solid var(--navy); font-size: 16px; }
+  .spec caption { text-align: left; background: var(--navy); color: var(--white); padding: 10px 14px; font-weight: 500; }
+  .spec th, .spec td { border: 1px solid var(--line); padding: 10px 14px; text-align: left; vertical-align: top; }
+  .spec th { width: 40%; color: var(--pencil); font-weight: 400; }
+  .spec td { font-weight: 500; color: var(--navy); }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+
+  .findings { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); background: var(--white); }
+  .finding { padding: 28px; border-right: 1px solid var(--line); }
+  .finding:last-child { border-right: 0; }
+  .finding b { display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 52px; line-height: 1; color: var(--navy); margin-bottom: 8px; }
+  .finding h3 { font-size: 22px; margin: 0 0 6px; }
+  .finding p { margin: 0; color: var(--pencil); font-size: 16px; }
+
+  figure { margin: 0; }
+  .fig { background: #E6E7EA; border: 1px solid var(--line); }
+  .fig figcaption { background: var(--white); padding: 10px 14px; font-size: 14px; color: var(--pencil); border-top: 1px solid var(--line); }
+  .views { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  .views img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #D9DBDF; }
+
+  .callout { background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--orange); padding: 24px 28px; }
+  .callout h3 { font-size: 26px; margin: 0 0 8px; }
+  .callout p { margin: 0 0 10px; }
+  .callout p:last-child { margin: 0; }
+  .math { font-family: "Barlow Condensed", sans-serif; font-size: 24px; color: var(--navy); }
+
+  .checks { list-style: none; padding: 0; margin: 0; }
+  .checks li { padding: 10px 0 10px 30px; border-top: 1px solid var(--line); position: relative; }
+  .checks li:first-child { border-top: 0; }
+  .checks li::before { content: ""; position: absolute; left: 4px; top: 17px; width: 12px; height: 7px; border-left: 2.5px solid var(--orange); border-bottom: 2.5px solid var(--orange); transform: rotate(-45deg); }
+  .panel { background: var(--white); border: 1px solid var(--line); padding: 28px; }
+  .panel h3 { font-size: 24px; margin: 0 0 12px; }
+
+  footer { background: var(--navy); color: #D9E2EE; margin-top: 88px; padding: 40px 0; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
+  footer a { color: var(--white); font-weight: 500; }
+
+  @media (max-width: 760px) {
+    .hero { padding-top: 40px; }
+    .hero-top, .two { grid-template-columns: 1fr; gap: 24px; }
+    .facts { justify-content: flex-start; }
+    .hero-sim { margin-top: 28px; }
+    .findings { grid-template-columns: 1fr; }
+    .finding { border-right: 0; border-bottom: 1px solid var(--line); }
+    .finding:last-child { border-bottom: 0; }
+    .views { grid-template-columns: 1fr; }
+    h2 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="Site">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects">All projects</a>
+    <a href="../index.html">Marcos Morales</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <h1>Wooden Dragster</h1>
+        <p class="sub">Designed in SolidWorks, tested in a virtual wind tunnel</p>
+        <p>I modeled a wooden dragster, then used SOLIDWORKS Flow Simulation to see how air moves around it and where it creates drag.</p>
+      </div>
+      <ul class="facts" aria-label="Project facts">
+        <li>03/2026 to 04/2026</li>
+        <li>SolidWorks</li>
+        <li>Flow Simulation</li>
+        <li>Physical prototype</li>
+      </ul>
+    </div>
+    <figure class="hero-sim">
+      <img src="../images/dragster/side.jpg" alt="Side view of the airflow simulation: air lines colored by speed wrap around the dragster and swirl behind the flat rear">
+    </figure>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="scale" aria-label="Color scale">
+    <span>0 m/s</span><span class="bar" aria-hidden="true"></span><span>22.2 m/s</span>
+    <span>Air speed. Red is fast, blue is slow.</span>
+  </div>
+
+  <section aria-labelledby="setup">
+    <h2 id="setup">The simulation setup</h2>
+    <p class="lead">An external flow study puts the car inside a virtual wind tunnel. The air comes straight at the nose, like the car is racing forward.</p>
+    <div class="two">
+      <table class="spec">
+        <caption>Flow Simulation settings</caption>
+        <tbody>
+          <tr><th scope="row">Software</th><td>SOLIDWORKS Flow Simulation</td></tr>
+          <tr><th scope="row">Study type</th><td>External flow</td></tr>
+          <tr><th scope="row">Fluid</th><td>Air</td></tr>
+          <tr><th scope="row">Air speed</th><td>20 m/s, nose to tail</td></tr>
+          <tr><th scope="row">Ambient conditions</th><td>101,325 Pa, 293 K</td></tr>
+          <tr><th scope="row">Flow type</th><td>Laminar and turbulent</td></tr>
+          <tr><th scope="row">Goal tracked</th><td>Drag force along the car</td></tr>
+        </tbody>
+      </table>
+      <div class="panel">
+        <h3>Why 20 m/s</h3>
+        <p style="margin:0">That is a typical top speed for a small CO<sub>2</sub> dragster, so the results reflect what the car actually sees on the track.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="results">
+    <h2 id="results">What the air does</h2>
+    <p class="lead">The flow lines tell the story in three parts.</p>
+    <div class="findings">
+      <div class="finding"><b>20 m/s</b><h3>At the nose</h3><p>Air arrives at full speed and splits around the pointed nose.</p></div>
+      <div class="finding"><b>22 m/s</b><h3>Over the body</h3><p>Air speeds up as it squeezes over the shoulders and the raised rear block.</p></div>
+      <div class="finding"><b>~0 m/s</b><h3>Behind the rear</h3><p>The flat back cuts the air off. It stalls and swirls, which pulls the car backward.</p></div>
+    </div>
+    <figure class="fig" style="margin-top:24px">
+      <img src="../images/dragster/iso.jpg" alt="Angled view of the flow lines around the dragster" loading="lazy">
+      <figcaption>Angled view. The blue swirls right behind the rear block are the wake, the main source of drag.</figcaption>
+    </figure>
+    <div class="views">
+      <figure class="fig"><img src="../images/dragster/rear.jpg" alt="View from behind the car showing the swirling wake" loading="lazy"><figcaption>From behind: slow air (blue) swirls in the wake</figcaption></figure>
+      <figure class="fig"><img src="../images/dragster/front.jpg" alt="View from the front showing air splitting around the nose" loading="lazy"><figcaption>From the front: air splits around the nose</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="check">
+    <h2 id="check">Does it make sense?</h2>
+    <div class="callout">
+      <h3>A quick hand check</h3>
+      <p>When moving air hits a surface head-on, its pressure rises by about</p>
+      <p class="math">½ ρ v² = ½ × 1.2 kg/m³ × (20 m/s)² ≈ 240 Pa</p>
+      <p>The simulation shows a pressure spread of about 290 Pa around the car, the same order of magnitude. So the setup is behaving the way the physics says it should.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="next">
+    <h2 id="next">What I would change next</h2>
+    <p class="lead">The simulation points to clear improvements for the next version.</p>
+    <div class="panel">
+      <ul class="checks">
+        <li>Taper the rear block instead of ending it flat, to shrink the wake and cut drag.</li>
+        <li>Smooth the step where the body rises into the rear block, so the air stays attached.</li>
+        <li>Run the same study on each new version and compare the drag force side by side.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Marcos Morales, Mechanical Engineering, UTEP</span>
+    <a href="../index.html#projects">Back to all projects</a>
+  </div>
+</footer>
+
+</body>
+</html>
