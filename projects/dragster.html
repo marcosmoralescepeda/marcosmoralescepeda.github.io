@@ -77,11 +77,24 @@
   .drag-result span { font-size: 15px; }
   .drag-result b { display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 80px; line-height: 1; color: var(--white); margin: 6px 0 10px; }
   .drag-result p { margin: 0; font-size: 16px; }
+  .hero-cap { display: block; background: var(--navy); color: #9FB2C9; font-size: 14px; padding: 8px 0 12px; }
+  .win-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; align-items: center; }
+  .race-stats { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); background: var(--white); }
+  .race-stats div { padding: 22px; border-right: 1px solid var(--line); }
+  .race-stats div:last-child { border-right: 0; }
+  .race-stats b { display: block; white-space: nowrap; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: clamp(34px, 3.6vw, 48px); line-height: 1; color: var(--navy); margin-bottom: 6px; }
+  .race-stats div:first-child b { color: var(--orange); }
+  .race-stats span { color: var(--pencil); font-size: 15px; }
+  .trophy img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .concepts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .concepts img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #fff; }
+  .build-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  .build-row img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
   figure { margin: 0; }
   .fig { background: #E6E7EA; border: 1px solid var(--line); }
   .fig figcaption { background: var(--white); padding: 10px 14px; font-size: 14px; color: var(--pencil); border-top: 1px solid var(--line); }
   .views { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-  .views img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #D9DBDF; }
+  .views img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #D9DBDF; }
 
   .callout { background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--orange); padding: 24px 28px; }
   .callout h3 { font-size: 26px; margin: 0 0 8px; }
@@ -109,6 +122,13 @@
     .finding { border-right: 0; border-bottom: 1px solid var(--line); }
     .finding:last-child { border-bottom: 0; }
     .views { grid-template-columns: 1fr; }
+    .win-grid { grid-template-columns: 1fr; gap: 24px; }
+    .race-stats { grid-template-columns: 1fr; }
+    .race-stats div { border-right: 0; border-bottom: 1px solid var(--line); }
+    .race-stats div:last-child { border-bottom: 0; }
+    .concepts { grid-template-columns: 1fr 1fr; }
+    .build-row { grid-template-columns: 1fr 1fr; }
+
     h2 { font-size: 36px; }
   }
 </style>
@@ -127,12 +147,13 @@
     <div class="hero-top">
       <div>
         <h1>Wooden Dragster</h1>
-        <p class="sub">Designed in SolidWorks, tested in a virtual wind tunnel</p>
-        <p>I modeled a wooden dragster, then used SOLIDWORKS Flow Simulation to see how air moves around it and where it creates drag.</p>
+        <p class="sub">1st place out of 28 cars, 0.972 seconds</p>
+        <p>A CO<sub>2</sub>-powered dragster my team took from four concepts to a carved wooden car that won the class race. I later ran an airflow study to see exactly where it makes drag.</p>
       </div>
       <ul class="facts" aria-label="Project facts">
         <li>MECH 1305 Graphic &amp; Design Fundamentals</li>
-        <li>03/2026 to 04/2026</li>
+        <li>Team 9, four students</li>
+        <li>Spring 2026</li>
         <li>SolidWorks</li>
         <li>Flow Simulation</li>
         <li>Physical prototype</li>
@@ -141,20 +162,86 @@
     </div>
     <figure class="hero-sim">
       <img src="../images/dragster/side.jpg" alt="Side view of the airflow simulation: air lines colored by speed wrap around the dragster and swirl behind the flat rear">
+      <figcaption class="hero-cap">Airflow around the final design at 20 m/s</figcaption>
     </figure>
   </div>
 </header>
 
 <main class="wrap">
-  <div class="scale" aria-label="Color scale">
+
+
+
+
+
+  <section class="win" aria-labelledby="race">
+    <div class="win-grid">
+      <div>
+        <h2 id="race">The race</h2>
+        <p class="lead">Every team raced its car down the same CO<sub>2</sub> track and was ranked by time. Ours was the only car under one second.</p>
+        <div class="race-stats">
+          <div><b>1st</b><span>out of 28 cars</span></div>
+          <div><b>0.972 s</b><span>winning run</span></div>
+          <div><b>0.087 s</b><span>ahead of 2nd place</span></div>
+        </div>
+      </div>
+      <figure class="fig trophy"><img src="../images/dragster/trophy.jpg" alt="The finished dragster next to a gold trophy reading 1st place, dragster race, Spring 2026" loading="lazy"><figcaption>1st place trophy, Spring 2026</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="concepts">
+    <h2 id="concepts">Step 1: Four concepts</h2>
+    <p class="lead">Each team member modeled their own design in SolidWorks. We compared them on drag, weight, stability, and how easy they would be to cut from wood.</p>
+    <div class="concepts">
+      <figure class="fig"><img src="../images/dragster/concept-1.jpg" alt="Concept with a thin flat base and a rounded block on top" loading="lazy"><figcaption>Thin base with a raised pod</figcaption></figure>
+      <figure class="fig"><img src="../images/dragster/concept-2.jpg" alt="Concept with a long curved body that tapers at both ends" loading="lazy"><figcaption>Curved body, tapered ends</figcaption></figure>
+      <figure class="fig"><img src="../images/dragster/concept-3.jpg" alt="Concept with a wedge nose and a wave-shaped top" loading="lazy"><figcaption>Wedge nose, wave top</figcaption></figure>
+      <figure class="fig"><img src="../images/dragster/concept-4.jpg" alt="Concept shaped like a smooth rounded capsule" loading="lazy"><figcaption>Smooth capsule</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="final">
+    <h2 id="final">Step 2: The final design</h2>
+    <p class="lead">We picked a shape that cut drag while staying strong and fitting the CO<sub>2</sub> cartridge rules: a tapered nose, smooth splines along the body, and a solid rear block to hold the cartridge.</p>
+    <div class="views">
+      <figure class="fig"><img src="../images/dragster/final-cad.jpg" alt="Final dragster design in SolidWorks, angled view" loading="lazy"><figcaption>Final CAD model</figcaption></figure>
+      <figure class="fig"><img src="../images/dragster/final-profile.jpg" alt="Final dragster design seen from the side" loading="lazy"><figcaption>Side profile</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="build">
+    <h2 id="build">Step 3: Cutting it from wood</h2>
+    <p class="lead">We traced the profile onto a wood block, cut it on the band saw, then sanded and shaped it by hand until it matched the CAD model.</p>
+    <div class="views">
+      <figure class="fig"><img src="../images/dragster/cut-1.jpg" alt="Wood block with the dragster outline traced on it, on the band saw" loading="lazy"><figcaption>Profile traced on the block</figcaption></figure>
+      <figure class="fig"><img src="../images/dragster/cut-2.jpg" alt="Wood block after the first band saw cut" loading="lazy"><figcaption>First cuts on the band saw</figcaption></figure>
+    </div>
+    <div class="build-row">
+      <figure class="fig"><img src="../images/dragster/shape-1.jpg" alt="Carved wooden body held in hand, angled view" loading="lazy"><figcaption>Shaped body</figcaption></figure>
+      <figure class="fig"><img src="../images/dragster/shape-2.jpg" alt="Carved wooden body held in hand, side view" loading="lazy"><figcaption>Side profile in wood</figcaption></figure>
+      <figure class="fig"><img src="../images/dragster/shape-3.jpg" alt="Carved wooden body held in hand, top view" loading="lazy"><figcaption>Top view</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="real">
+    <h2 id="real">Step 4: The finished car</h2>
+    <p class="lead">Painted and fitted with wheels and axles. The finished car keeps every feature of the CAD model: the pointed nose, the slim body, and the raised rear block that holds the CO<sub>2</sub> cartridge.</p>
+    <figure class="fig">
+      <img src="../images/dragster/real-side.jpg" alt="Side view of the finished black wooden dragster with yellow dots and the CO2 cartridge at the rear" loading="lazy">
+      <figcaption>Side view. The shape matches the CAD model.</figcaption>
+    </figure>
+    <div class="views">
+      <figure class="fig"><img src="../images/dragster/real-front.jpg" alt="Front view of the wooden dragster showing the pointed nose" loading="lazy" style="object-fit:cover"><figcaption>Front: the pointed nose splits the air</figcaption></figure>
+      <figure class="fig"><img src="../images/dragster/real-rear.jpg" alt="Rear view of the wooden dragster showing the CO2 cartridge in the rear block" loading="lazy" style="object-fit:cover"><figcaption>Rear: the flat back where the wake forms, with the CO<sub>2</sub> cartridge</figcaption></figure>
+    </div>
+  </section>
+  <section aria-labelledby="setup">
+    <h2 id="setup">Step 5: Airflow study</h2>
+    <p class="lead">After the race I ran an external flow study in SOLIDWORKS Flow Simulation to see why the shape worked and where it could improve. The car sits inside a virtual wind tunnel. The air comes straight at the nose, like the car is racing forward.</p>
+    <div class="scale" aria-label="Color scale">
     <span>0 m/s</span><span class="bar" aria-hidden="true"></span><span>22.2 m/s</span>
     <span>Air speed. Red is fast, blue is slow.</span>
   </div>
-
-  <section aria-labelledby="setup">
-    <h2 id="setup">The simulation setup</h2>
-    <p class="lead">An external flow study puts the car inside a virtual wind tunnel. The air comes straight at the nose, like the car is racing forward.</p>
-    <div class="two">
+    <div class="two" style="margin-top:24px">
       <table class="spec">
         <caption>Flow Simulation settings</caption>
         <tbody>
@@ -180,7 +267,6 @@
       </div>
     </div>
   </section>
-
   <section aria-labelledby="results">
     <h2 id="results">What the air does</h2>
     <p class="lead">The flow lines tell the story in three parts.</p>
@@ -198,7 +284,6 @@
       <figure class="fig"><img src="../images/dragster/front.jpg" alt="View from the front showing air splitting around the nose" loading="lazy"><figcaption>From the front: air splits around the nose</figcaption></figure>
     </div>
   </section>
-
   <section aria-labelledby="check">
     <h2 id="check">Does it make sense?</h2>
     <div class="callout">
@@ -208,20 +293,6 @@
       <p>The simulation shows a pressure spread of about 290 Pa around the car, the same order of magnitude. So the setup is behaving the way the physics says it should.</p>
     </div>
   </section>
-
-  <section aria-labelledby="real">
-    <h2 id="real">The real car</h2>
-    <p class="lead">I built the dragster in wood from the same design I simulated: the pointed nose, the slim body, and the raised rear block that holds the CO<sub>2</sub> cartridge.</p>
-    <figure class="fig">
-      <img src="../images/dragster/real-side.jpg" alt="Side view of the finished black wooden dragster with yellow dots and the CO2 cartridge at the rear" loading="lazy">
-      <figcaption>Side view. The shape matches the CAD model and the simulation.</figcaption>
-    </figure>
-    <div class="views">
-      <figure class="fig"><img src="../images/dragster/real-front.jpg" alt="Front view of the wooden dragster showing the pointed nose" loading="lazy" style="object-fit:cover"><figcaption>Front: the pointed nose splits the air</figcaption></figure>
-      <figure class="fig"><img src="../images/dragster/real-rear.jpg" alt="Rear view of the wooden dragster showing the CO2 cartridge in the rear block" loading="lazy" style="object-fit:cover"><figcaption>Rear: the flat back where the wake forms, with the CO<sub>2</sub> cartridge</figcaption></figure>
-    </div>
-  </section>
-
   <section aria-labelledby="next">
     <h2 id="next">What I would change next</h2>
     <p class="lead">The simulation points to clear improvements for the next version.</p>
