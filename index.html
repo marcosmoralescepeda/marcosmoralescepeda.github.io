@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marcos Morales | Mechanical Engineering Portfolio</title>
+<meta name="description" content="Mechanical engineering student at UTEP. Drone, rover, and product design projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #041E42;
+    --orange: #FF8200;
+    --ink: #1D2733;
+    --pencil: #5C6672;
+    --line: #C9D0D8;
+    --paper: #F6F8FA;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Barlow", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--navy); }
+  a:focus-visible, .btn:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero {
+    background: var(--navy);
+    color: var(--white);
+    background-image:
+      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    padding: 72px 0 64px;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; }
+  .hero h1 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+    font-size: clamp(56px, 9vw, 104px);
+    line-height: .92;
+    letter-spacing: -.01em;
+    margin: 0 0 20px;
+  }
+  .hero p.lede { font-size: 20px; max-width: 34ch; margin: 0 0 28px; color: #D9E2EE; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid var(--white);
+    color: var(--white);
+  }
+  .btn.primary { background: var(--orange); border-color: var(--orange); color: var(--navy); }
+  .btn:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
+
+  table.titleblock {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1.5px solid var(--white);
+    font-size: 15px;
+  }
+  .titleblock td { border: 1px solid rgba(255,255,255,.35); padding: 8px 12px; vertical-align: top; }
+  .titleblock td:first-child { color: #9FB2C9; width: 38%; }
+
+  section { padding: 72px 0 24px; }
+  h2 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--navy);
+    margin: 0 0 8px;
+  }
+  .section-note { color: var(--pencil); margin: 0 0 40px; max-width: 60ch; }
+
+  .project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+  }
+  .project:nth-of-type(even) .shot { order: 2; }
+  .shot {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: var(--white);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .shot .placeholder {
+    position: absolute; inset: 0;
+    display: none;
+    align-items: center; justify-content: center;
+    text-align: center;
+    color: var(--pencil);
+    font-size: 15px;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-color: var(--white);
+  }
+  .shot.missing .placeholder { display: flex; }
+  .shot.missing img { display: none; }
+  .placeholder span { background: var(--white); padding: 6px 10px; border: 1px solid var(--line); }
+
+  .project h3 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.05;
+    color: var(--navy);
+    margin: 0 0 6px;
+  }
+  .meta { color: var(--pencil); font-size: 15px; margin: 0 0 16px; }
+  .status { display: inline-block; font-size: 14px; font-weight: 500; color: var(--navy); border: 1.5px solid var(--orange); padding: 2px 10px; margin-bottom: 14px; }
+  .project ul { padding-left: 20px; margin: 0 0 16px; }
+  .project li { margin-bottom: 6px; }
+  .tools { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .tools li { font-size: 14px; border: 1px solid var(--line); background: var(--white); padding: 3px 10px; margin: 0; }
+
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); background: var(--white); }
+  .skills > div { padding: 24px; border-right: 1px solid var(--line); }
+  .skills > div:last-child { border-right: 0; }
+  .skills h4 { font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 22px; color: var(--navy); margin: 0 0 10px; }
+  .skills ul { margin: 0; padding-left: 18px; }
+
+  footer { background: var(--navy); color: #D9E2EE; margin-top: 72px; padding: 48px 0; }
+  footer h2 { color: var(--white); }
+  footer a { color: var(--white); }
+  .contact { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 16px; font-size: 18px; }
+
+  @media (max-width: 760px) {
+    .hero { padding: 48px 0; }
+    .hero-grid, .project { grid-template-columns: 1fr; gap: 24px; }
+    .project:nth-of-type(even) .shot { order: 0; }
+    .skills { grid-template-columns: 1fr; }
+    .skills > div { border-right: 0; border-bottom: 1px solid var(--line); }
+    .skills > div:last-child { border-bottom: 0; }
+    h2 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Marcos<br>Morales</h1>
+      <p class="lede">Mechanical engineering student at UTEP. I design hardware in SolidWorks, print it, and build it.</p>
+      <div class="actions">
+        <a class="btn primary" href="resume.pdf">Download resume</a>
+        <a class="btn" href="mailto:mmorales62@miners.utep.edu">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/TU-USUARIO">LinkedIn</a>
+      </div>
+    </div>
+    <table class="titleblock" aria-label="Quick facts">
+      <tr><td>Program</td><td>B.S. Mechanical Engineering</td></tr>
+      <tr><td>School</td><td>University of Texas at El Paso</td></tr>
+      <tr><td>GPA</td><td>3.91 overall, 4.00 major</td></tr>
+      <tr><td>Graduation</td><td>06/2029</td></tr>
+      <tr><td>Focus</td><td>Mechanical design, mechatronics, additive manufacturing</td></tr>
+    </table>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Projects</h2>
+    <p class="section-note">Hands-on work from student teams and coursework.</p>
+
+    <article class="project">
+      <div class="shot">
+        <img src="images/drone.jpg" alt="Autonomous tracking drone designed in SolidWorks" loading="lazy">
+        <div class="placeholder"><span>Add photo: images/drone.jpg</span></div>
+      </div>
+      <div>
+        <h3>Autonomous tracking drone</h3>
+        <p class="meta">S.U.N. Program, UTEP SHPE/MAES &nbsp;|&nbsp; Design lead &nbsp;|&nbsp; Summer 2026</p>
+        <ul>
+          <li>Designed the full drone frame in SolidWorks on a $600 team budget.</li>
+          <li>Built in a ventilation system to keep the electronics from overheating.</li>
+          <li>Balanced the weight of the internal components for stable flight.</li>
+          <li>Produced the structural chassis parts with 3D printing.</li>
+          <li>Integrated an onboard camera used for AI-based person tracking.</li>
+        </ul>
+        <ul class="tools"><li>SolidWorks</li><li>3D printing</li><li>Thermal design</li><li>Computer vision</li></ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="shot">
+        <img src="images/rover.jpg" alt="Orion rover design work" loading="lazy">
+        <div class="placeholder"><span>Add photo: images/rover.jpg</span></div>
+      </div>
+      <div>
+        <h3>Orion rover</h3>
+        <p class="meta">Orion Robotics, UTEP &nbsp;|&nbsp; Design &amp; Modeling and Mechatronics &nbsp;|&nbsp; 09/2026 to present</p>
+        <span class="status">In progress</span>
+        <ul>
+          <li>Member of a new robotics team building a rover for the University Rover Challenge in Utah (2027) and an autonomous RoboRacer.</li>
+          <li>Assist sub-team leads with chassis design research and component selection.</li>
+          <li>Learning ROS 2 integration of LiDAR and cameras for autonomous navigation.</li>
+        </ul>
+        <ul class="tools"><li>Chassis design</li><li>ROS 2</li><li>LiDAR</li><li>Mechatronics</li></ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="shot">
+        <img src="images/dragster.jpg" alt="Wooden dragster prototype" loading="lazy">
+        <div class="placeholder"><span>Add photo: images/dragster.jpg</span></div>
+      </div>
+      <div>
+        <h3>Wooden dragster</h3>
+        <p class="meta">Course project &nbsp;|&nbsp; 03/2026 to 04/2026</p>
+        <ul>
+          <li>Modeled the dragster in SolidWorks.</li>
+          <li>Ran airflow simulations and refined the shape to cut drag.</li>
+          <li>Built a physical prototype from the digital design.</li>
+        </ul>
+        <ul class="tools"><li>SolidWorks</li><li>Airflow simulation</li><li>Prototyping</li></ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="shot">
+        <img src="images/solar-lamp.jpg" alt="Solar-powered lamp 3D model" loading="lazy">
+        <div class="placeholder"><span>Add photo: images/solar-lamp.jpg</span></div>
+      </div>
+      <div>
+        <h3>Solar-powered lamp</h3>
+        <p class="meta">Course project &nbsp;|&nbsp; 01/2026 to 04/2026</p>
+        <ul>
+          <li>Designed a 3D prototype based on user needs and market research.</li>
+          <li>Used design matrices to compare concepts and pick a direction.</li>
+          <li>Presented iterative improvements toward a working prototype.</li>
+        </ul>
+        <ul class="tools"><li>Product design</li><li>Design matrices</li><li>3D modeling</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <h2 id="skills-title">Skills</h2>
+    <p class="section-note">Tools I use and what I am learning now.</p>
+    <div class="skills">
+      <div>
+        <h4>Design &amp; build</h4>
+        <ul>
+          <li>SolidWorks</li>
+          <li>3D printing (Additive Manufacturing Lab)</li>
+          <li>Airflow simulation</li>
+          <li>Prototyping</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Technical</h4>
+        <ul>
+          <li>Basic electrical circuits</li>
+          <li>JavaScript basics</li>
+          <li>ROS 2 (learning)</li>
+          <li>Excel, Word, PowerPoint</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Languages</h4>
+        <ul>
+          <li>Spanish, native</li>
+          <li>English, professional</li>
+          <li>French, elementary</li>
+          <li>Japanese, JLPT N5</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>Looking for mechanical engineering internships in design, automotive, and aerospace.</p>
+    <div class="contact">
+      <a href="mailto:mmorales62@miners.utep.edu">mmorales62@miners.utep.edu</a>
+      <a href="https://www.linkedin.com/in/TU-USUARIO">LinkedIn</a>
+      <a href="resume.pdf">Resume (PDF)</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.shot img').forEach(function (img) {
+    function mark() { img.parentElement.classList.add('missing'); }
+    if (img.complete && img.naturalWidth === 0) mark();
+    img.addEventListener('error', mark);
+  });
+</script>
+</body>
+</html>
