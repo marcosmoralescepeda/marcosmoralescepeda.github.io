@@ -3,142 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07111F">
 <title>Autonomous Drone | Marcos Morales</title>
 <meta name="description" content="Ducted FPV drone for AI person tracking: designed in SolidWorks, 3D printed, built, and studied in SOLIDWORKS Flow Simulation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #041E42;
-    --orange: #FF8200;
-    --ink: #1D2733;
-    --pencil: #5C6672;
-    --line: #C9D0D8;
-    --paper: #F6F8FA;
-    --white: #FFFFFF;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Barlow", system-ui, sans-serif; font-size: 17px; line-height: 1.6; }
-  a { color: var(--navy); }
-  a:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
-  img { max-width: 100%; display: block; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-  h1, h2, h3 { font-family: "Barlow Condensed", sans-serif; font-weight: 600; color: var(--navy); line-height: 1.05; }
-
-  .topbar { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,.12); }
-  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
-  .topbar a { color: var(--white); text-decoration: none; font-weight: 500; }
-  .topbar a:hover { color: var(--orange); }
-  .topbar .back::before { content: "\2190\00a0"; }
-
-  .hero {
-    background: var(--navy);
-    color: var(--white);
-    background-image:
-      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-    background-size: 32px 32px;
-    padding: 56px 0 0;
-    overflow: hidden;
-  }
-  .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: end; }
-  .hero h1 { color: var(--white); font-size: clamp(60px, 9vw, 120px); margin: 0; letter-spacing: -.01em; line-height: .9; }
-  .hero .sub { font-family: "Barlow Condensed", sans-serif; font-size: 28px; color: var(--orange); margin: 10px 0 18px; }
-  .hero p { color: #D9E2EE; font-size: 19px; max-width: 46ch; margin: 0 0 24px; }
-  .facts { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 56px; padding: 0; list-style: none; }
-  .facts li { border: 1px solid rgba(255,255,255,.35); padding: 6px 12px; font-size: 15px; }
-  .hero-photo { background: #DDD; border: 1px solid rgba(255,255,255,.35); border-bottom: 0; aspect-ratio: 4 / 5; overflow: hidden; }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
-
-  section { padding: 72px 0 0; }
-  h2 { font-size: 44px; margin: 0 0 10px; }
-  .lead { color: var(--pencil); max-width: 62ch; margin: 0 0 32px; }
-
-  .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1.5px solid var(--navy); background: var(--white); }
-  .result { padding: 22px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .result:nth-child(4n) { border-right: 0; }
-  .result:nth-last-child(-n+4) { border-bottom: 0; }
-  .result b { display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: clamp(36px, 4vw, 50px); line-height: 1; color: var(--navy); margin-bottom: 8px; white-space: nowrap; }
-  .result.key b { color: var(--orange); }
-  .result span { display: block; color: var(--ink); font-weight: 500; font-size: 16px; line-height: 1.3; }
-  .result small { display: block; color: var(--pencil); font-size: 14px; margin-top: 4px; line-height: 1.35; }
-  .note { color: var(--pencil); font-size: 14px; margin: 12px 0 0; }
-
-  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-  .panel { background: var(--white); border: 1px solid var(--line); padding: 28px; }
-  .panel h3 { font-size: 24px; margin: 0 0 12px; }
-  .checks { list-style: none; padding: 0; margin: 0; }
-  .checks li { padding: 9px 0 9px 30px; border-top: 1px solid var(--line); position: relative; }
-  .checks li:first-child { border-top: 0; }
-  .checks li::before { content: ""; position: absolute; left: 4px; top: 16px; width: 12px; height: 7px; border-left: 2.5px solid var(--orange); border-bottom: 2.5px solid var(--orange); transform: rotate(-45deg); }
-
-  figure { margin: 0; }
-  .fig { background: #E6E7EA; border: 1px solid var(--line); }
-  .fig figcaption { background: var(--white); padding: 10px 14px; font-size: 14px; color: var(--pencil); border-top: 1px solid var(--line); }
-  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .gallery img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
-  .gallery figure { display: flex; flex-direction: column; }
-  .gallery figcaption { flex: 1; }
-  .views { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-  .views img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #D9DBDF; }
-
-  .scale { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 14px; color: var(--pencil); margin: 0 0 16px; }
-  .scale .bar { flex: 0 1 280px; height: 10px; border: 1px solid var(--line); background: linear-gradient(90deg, #0000FF, #00FFFF, #00FF00, #FFFF00, #FF8000, #FF0000); }
-
-  table.spec { width: 100%; border-collapse: collapse; background: var(--white); border: 1.5px solid var(--navy); font-size: 16px; }
-  .spec caption { text-align: left; background: var(--navy); color: var(--white); padding: 10px 14px; font-weight: 500; }
-  .spec th, .spec td { border: 1px solid var(--line); padding: 10px 14px; text-align: left; vertical-align: top; }
-  .spec th { width: 40%; color: var(--pencil); font-weight: 400; }
-  .spec td { font-weight: 500; color: var(--navy); }
-
-  .drag-result { background: var(--navy); color: #D9E2EE; padding: 28px; border-left: 5px solid var(--orange); }
-  .drag-result span { font-size: 15px; }
-  .drag-result b { display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 80px; line-height: 1; color: var(--white); margin: 6px 0 10px; }
-  .drag-result p { margin: 0; font-size: 16px; }
-
-  .findings { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); background: var(--white); margin-top: 24px; }
-  .finding { padding: 28px; border-right: 1px solid var(--line); }
-  .finding:last-child { border-right: 0; }
-  .finding b { display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 52px; line-height: 1; color: var(--navy); margin-bottom: 8px; }
-  .finding h3 { font-size: 22px; margin: 0 0 6px; }
-  .finding p { margin: 0; color: var(--pencil); font-size: 16px; }
-
-  .callout { background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--orange); padding: 24px 28px; }
-  .callout h3 { font-size: 26px; margin: 0 0 8px; }
-  .callout p { margin: 0 0 12px; }
-  .callout p:last-child { margin: 0; }
-  math { font-size: 1.25em; color: var(--navy); }
-  .eq { margin: 14px 0; overflow-x: auto; }
-
-  footer { background: var(--navy); color: #D9E2EE; margin-top: 88px; padding: 40px 0; }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
-  footer a { color: var(--white); font-weight: 500; }
-
-  @media (max-width: 860px) {
-    .results-grid { grid-template-columns: 1fr 1fr; }
-    .result:nth-child(4n) { border-right: 1px solid var(--line); }
-    .result:nth-child(2n) { border-right: 0; }
-    .result:nth-last-child(-n+4) { border-bottom: 1px solid var(--line); }
-    .result:nth-last-child(-n+2) { border-bottom: 0; }
-    .gallery { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 760px) {
-    .hero { padding-top: 40px; }
-    .hero-grid, .two { grid-template-columns: 1fr; gap: 28px; }
-    .facts { margin-bottom: 8px; }
-    .hero-photo { aspect-ratio: 1 / 1; }
-    .views { grid-template-columns: 1fr; }
-    .findings { grid-template-columns: 1fr; }
-    .finding { border-right: 0; border-bottom: 1px solid var(--line); }
-    .finding:last-child { border-bottom: 0; }
-    .drag-result b { font-size: 64px; }
-    h2 { font-size: 36px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="page">
 
 <nav class="topbar" aria-label="Site">
   <div class="wrap">
@@ -148,9 +21,11 @@
 </nav>
 
 <header class="hero">
+  <div class="wrap">
+    <h1>Autonomous Drone</h1>
+  </div>
   <div class="wrap hero-grid">
     <div>
-      <h1>Autonomous Drone</h1>
       <p class="sub">A ducted drone that finds a person with AI</p>
       <p>I designed the whole frame in SolidWorks as design lead, 3D printed it, and our team built it. Then I put the CAD model in a virtual wind tunnel to measure its drag and see how air moves around it.</p>
       <ul class="facts" aria-label="Project facts">
@@ -216,7 +91,7 @@
   <section aria-labelledby="build">
     <h2 id="build">The build</h2>
     <p class="lead">A blue ducted frame with a red top cover. The flight controller and ESC stack sit in the center, the FPV camera faces forward between the front ducts, and the battery straps on top.</p>
-    <div class="gallery">
+    <div class="gallery four">
       <figure class="fig"><img src="../images/drone/real-top.jpg" alt="Top view of the open drone showing the electronics stack, wiring and front camera" loading="lazy"><figcaption>Top view, electronics stack in the center</figcaption></figure>
       <figure class="fig"><img src="../images/drone/real-hand.jpg" alt="The drone held in one hand to show its small size" loading="lazy"><figcaption>Small enough to hold in one hand</figcaption></figure>
       <figure class="fig"><img src="../images/drone/real-front.jpg" alt="Front view of the drone with the red top cover and the camera between the front ducts" loading="lazy" style="object-position:center 55%"><figcaption>Front, camera between the ducts</figcaption></figure>
@@ -265,7 +140,7 @@
       <div class="finding"><b>18 m/s</b><h3>Under the front edge</h3><p>Air speeds up as it wraps around the lower front corner, the fastest spot in the study.</p></div>
       <div class="finding"><b>~0 m/s</b><h3>Behind and below</h3><p>The square walls of the ducts and body leave a big wake where the air stalls and swirls.</p></div>
     </div>
-    <div class="views">
+    <div class="views wide">
       <figure class="fig"><img src="../images/drone/sim-iso.jpg" alt="Angled view of the drone over the speed cut plot, with swirling blue flow lines inside the front duct" loading="lazy"><figcaption>Angled view: the wake starts at the ducts</figcaption></figure>
       <figure class="fig"><img src="../images/drone/sim-top.jpg" alt="Flow lines passing over the top cover and through the vent slots" loading="lazy"><figcaption>Flow lines over the top cover and vent slots</figcaption></figure>
     </div>
@@ -305,7 +180,7 @@
 </main>
 
 <footer>
-  <div class="wrap">
+  <div class="wrap row">
     <span>Marcos Morales, Mechanical Engineering, UTEP</span>
     <a href="../index.html#projects">Back to all projects</a>
   </div>

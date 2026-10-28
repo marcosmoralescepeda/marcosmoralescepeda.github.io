@@ -3,195 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07111F">
 <title>Marcos Morales | Mechanical Engineering Portfolio</title>
 <meta name="description" content="Mechanical engineering student at UTEP. Drone, dragster, and product design projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #041E42;
-    --orange: #FF8200;
-    --ink: #1D2733;
-    --pencil: #5C6672;
-    --line: #C9D0D8;
-    --paper: #F6F8FA;
-    --white: #FFFFFF;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Barlow", system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-  }
-  a { color: var(--navy); }
-  a:focus-visible, .btn:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-  header.hero {
-    background: var(--navy);
-    color: var(--white);
-    background-image:
-      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-    background-size: 32px 32px;
-    padding: 72px 0 64px;
-  }
-  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; }
-  .hero h1 {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 600;
-    font-size: clamp(56px, 9vw, 104px);
-    line-height: .92;
-    letter-spacing: -.01em;
-    margin: 0 0 20px;
-  }
-  .hero p.lede { font-size: 20px; max-width: 34ch; margin: 0 0 28px; color: #D9E2EE; }
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-block;
-    padding: 12px 20px;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1.5px solid var(--white);
-    color: var(--white);
-  }
-  .btn.primary { background: var(--orange); border-color: var(--orange); color: var(--navy); }
-  .btn:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
-
-  table.titleblock {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1.5px solid var(--white);
-    font-size: 15px;
-  }
-  .titleblock td { border: 1px solid rgba(255,255,255,.35); padding: 8px 12px; vertical-align: top; }
-  .titleblock td:first-child { color: #9FB2C9; width: 38%; }
-
-  section { padding: 72px 0 24px; }
-  h2 {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 600;
-    font-size: 44px;
-    line-height: 1;
-    color: var(--navy);
-    margin: 0 0 8px;
-  }
-  .section-note { color: var(--pencil); margin: 0 0 40px; max-width: 60ch; }
-
-  .project {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding: 40px 0;
-    border-top: 1px solid var(--line);
-  }
-  .project:nth-of-type(even) .shot { order: 2; }
-  .shot {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    background: var(--white);
-    border: 1px solid var(--line);
-    overflow: hidden;
-  }
-  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .shot .placeholder {
-    position: absolute; inset: 0;
-    display: none;
-    align-items: center; justify-content: center;
-    text-align: center;
-    color: var(--pencil);
-    font-size: 15px;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 24px 24px;
-    background-color: var(--white);
-  }
-  .shot.missing .placeholder { display: flex; }
-  .shot.missing img { display: none; }
-  .placeholder span { background: var(--white); padding: 6px 10px; border: 1px solid var(--line); }
-
-  .project h3 {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 1.05;
-    color: var(--navy);
-    margin: 0 0 6px;
-  }
-  .meta { color: var(--pencil); font-size: 15px; margin: 0 0 16px; }
-  .status { display: inline-block; font-size: 14px; font-weight: 500; color: var(--navy); border: 1.5px solid var(--orange); padding: 2px 10px; margin-bottom: 14px; }
-  .project ul { padding-left: 20px; margin: 0 0 16px; }
-  .project li { margin-bottom: 6px; }
-  .card-results { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); background: var(--white); margin: 0 0 16px; }
-  .card-results div { padding: 12px 14px; border-right: 1px solid var(--line); }
-  .card-results div:last-child { border-right: 0; }
-  .card-results b { display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 28px; line-height: 1; color: var(--navy); white-space: nowrap; }
-  .card-results div:first-child b { color: var(--orange); }
-  .card-results span { display: block; font-size: 14px; color: var(--pencil); line-height: 1.3; margin-top: 4px; }
-  .project .tools { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
-  .tools li { font-size: 14px; border: 1px solid var(--line); background: var(--white); padding: 3px 10px; margin: 0; }
-
-  .project.has-page { position: relative; }
-  .project-link { color: inherit; text-decoration: none; }
-  .project-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
-  .project-link:focus-visible { outline: none; }
-  .project.has-page:has(.project-link:focus-visible) { outline: 3px solid var(--orange); outline-offset: 6px; }
-  .see-more { display: inline-block; margin-top: 20px; padding: 10px 18px; background: var(--navy); color: var(--white); font-weight: 500; }
-  .see-more::after { content: "\00a0\2192"; }
-  .project.has-page .shot img { transition: transform .35s ease; }
-  .project.has-page:hover .shot img { transform: scale(1.03); }
-  .project.has-page:hover .see-more { background: var(--orange); color: var(--navy); }
-  .project.has-page:hover h3 { text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 5px; }
-  @media (prefers-reduced-motion: reduce) { .project.has-page .shot img { transition: none; } .project.has-page:hover .shot img { transform: none; } }
-
-  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); background: var(--white); }
-  .skills > div { padding: 24px; border-right: 1px solid var(--line); }
-  .skills > div:last-child { border-right: 0; }
-  .skills h4 { font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 22px; color: var(--navy); margin: 0 0 10px; }
-  .skills ul { margin: 0; padding-left: 18px; }
-
-  footer { background: var(--navy); color: #D9E2EE; margin-top: 72px; padding: 48px 0; }
-  footer h2 { color: var(--white); }
-  footer a { color: var(--white); }
-  .contact { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 16px; font-size: 18px; }
-
-  @media (max-width: 760px) {
-    .hero { padding: 48px 0; }
-    .hero-grid, .project { grid-template-columns: 1fr; gap: 24px; }
-    .project:nth-of-type(even) .shot { order: 0; }
-    .skills { grid-template-columns: 1fr; }
-    .skills > div { border-right: 0; border-bottom: 1px solid var(--line); }
-    .skills > div:last-child { border-bottom: 0; }
-    h2 { font-size: 36px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
 </head>
-<body>
+<body class="home">
 
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1>Marcos<br>Morales</h1>
-      <p class="lede">Mechanical engineering student at UTEP. I design hardware in SolidWorks, print it, and build it.</p>
-      <div class="actions">
-        <a class="btn primary" href="resume.pdf">Download resume</a>
-        <a class="btn" href="mailto:mmorales62@miners.utep.edu">Email me</a>
-        <a class="btn" href="https://www.linkedin.com/in/TU-USUARIO">LinkedIn</a>
+  <div class="wrap">
+    <h1>Marcos<br>Morales</h1>
+    <div class="home-row">
+      <div>
+        <p class="lede">Mechanical engineering student at UTEP. I design hardware in SolidWorks, test it in simulation, print it, and build it.</p>
+        <div class="actions">
+          <a class="btn primary" href="resume.pdf">Download resume</a>
+          <a class="btn" href="mailto:mmorales62@miners.utep.edu">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/TU-USUARIO">LinkedIn</a>
+        </div>
       </div>
+      <table class="titleblock" aria-label="Quick facts">
+        <tr><td>Program</td><td>B.S. Mechanical Engineering</td></tr>
+        <tr><td>School</td><td>University of Texas at El Paso</td></tr>
+        <tr><td>GPA</td><td>3.91 overall, 4.00 major</td></tr>
+        <tr><td>Graduation</td><td>06/2029</td></tr>
+        <tr><td>Focus</td><td>Mechanical design, aerodynamics, additive manufacturing</td></tr>
+      </table>
     </div>
-    <table class="titleblock" aria-label="Quick facts">
-      <tr><td>Program</td><td>B.S. Mechanical Engineering</td></tr>
-      <tr><td>School</td><td>University of Texas at El Paso</td></tr>
-      <tr><td>GPA</td><td>3.91 overall, 4.00 major</td></tr>
-      <tr><td>Graduation</td><td>06/2029</td></tr>
-      <tr><td>Focus</td><td>Mechanical design, mechatronics, additive manufacturing</td></tr>
-    </table>
   </div>
 </header>
 
