@@ -1,6 +1,6 @@
 # Marcos Morales | Portfolio
 
-Mechanical engineering portfolio: drone, rover, dragster and solar lamp projects.
+Mechanical engineering portfolio: drone, dragster and Solar Flair projects.
 
 ## Cómo subirlo a GitHub Pages
 
@@ -16,7 +16,6 @@ Mechanical engineering portfolio: drone, rover, dragster and solar lamp projects
 - **LinkedIn:** en `index.html` busca `TU-USUARIO` (aparece 2 veces) y cámbialo por tu usuario de LinkedIn.
 - **Fotos:** mete tus fotos en la carpeta `images` con estos nombres exactos:
   - `drone.jpg`
-  - `rover.jpg`
   - `dragster.jpg`
   - `solar-lamp.jpg`
 

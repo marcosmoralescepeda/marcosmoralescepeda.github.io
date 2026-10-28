@@ -131,6 +131,22 @@
 
     h2 { font-size: 36px; }
   }
+
+  .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1.5px solid var(--navy); background: var(--white); }
+  .result { padding: 22px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .result:nth-child(4n) { border-right: 0; }
+  .result:nth-last-child(-n+4) { border-bottom: 0; }
+  .result b { display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: clamp(36px, 4vw, 50px); line-height: 1; color: var(--navy); margin-bottom: 8px; white-space: nowrap; }
+  .result.key b { color: var(--orange); }
+  .result span { display: block; color: var(--ink); font-weight: 500; font-size: 16px; line-height: 1.3; }
+  .result small { display: block; color: var(--pencil); font-size: 14px; margin-top: 4px; line-height: 1.35; }
+  @media (max-width: 860px) {
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .result:nth-child(4n) { border-right: 1px solid var(--line); }
+    .result:nth-child(2n) { border-right: 0; }
+    .result:nth-last-child(-n+4) { border-bottom: 1px solid var(--line); }
+    .result:nth-last-child(-n+2) { border-bottom: 0; }
+  }
 </style>
 </head>
 <body>
@@ -172,6 +188,21 @@
 
 
 
+
+  <section aria-labelledby="results-all">
+    <h2 id="results-all">Results</h2>
+    <p class="lead">Every number from the project in one place: the race, the design process, and the airflow study.</p>
+    <div class="results-grid">
+      <div class="result key"><b>1st</b><span>out of 28 cars</span><small>Only car under one second</small></div>
+      <div class="result"><b>0.972 s</b><span>winning run</span><small>Fastest time in the class race</small></div>
+      <div class="result"><b>0.087 s</b><span>ahead of 2nd place</span><small>About an 8% margin</small></div>
+      <div class="result"><b>4</b><span>concepts compared</span><small>Drag, weight, stability, ease of cutting</small></div>
+      <div class="result key"><b>0.11 N</b><span>drag at 20 m/s</span><small>About the weight of 11 g</small></div>
+      <div class="result"><b>22 m/s</b><span>fastest air over the body</span><small>10% above the 20 m/s air speed</small></div>
+      <div class="result"><b>290 Pa</b><span>pressure spread in the study</span><small>Hand check predicts 240 Pa, same order</small></div>
+      <div class="result"><b>4</b><span>students on Team 9</span><small>Spring 2026, MECH 1305</small></div>
+    </div>
+  </section>
 
   <section class="win" aria-labelledby="race">
     <div class="win-grid">
