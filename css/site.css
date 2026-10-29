@@ -153,7 +153,6 @@ table.titleblock { width: 100%; border-collapse: collapse; border: 1.5px solid v
 .views.wide img { aspect-ratio: 16 / 10; }
 
 .scale { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); margin: 0 0 16px; }
-.scale .bar { flex: 0 1 280px; height: 10px; border: 1px solid var(--line); background: linear-gradient(90deg, #0000FF, #00FFFF, #00FF00, #FFFF00, #FF8000, #FF0000); }
 
 table.spec { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); font-size: 16px; }
 .spec caption { text-align: left; background: var(--panel-2); color: var(--text); padding: 12px 14px; font-weight: 700; font-stretch: 112%; border: 1px solid var(--line); border-bottom: 0; }
